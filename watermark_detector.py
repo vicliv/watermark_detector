@@ -24,11 +24,12 @@ def detect_watermark(image_path, template_path, threshold=0.8):
 
     # Get image dimensions
     h_img, w_img = img.shape[:2]
+    h_temp, w_temp = template.shape[:2]
 
     # Define the region of interest (ROI) in the bottom-right corner.
     # This will crop a 100x50 region (width=100, height=50) from the bottom-right.
-    crop_width = 100
-    crop_height = 50
+    crop_width = w_temp
+    crop_height = h_temp
     x_start = w_img - crop_width
     y_start = h_img - crop_height
     
